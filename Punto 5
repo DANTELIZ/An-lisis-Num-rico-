@@ -1,0 +1,29 @@
+import numpy as np
+import math
+import matplotlib.pyplot as plt
+
+from sympy import *
+#funcion de entrada
+def funcA( x ):
+	return math.e ** x - x - 1
+
+#Derivada de la funcion
+def derivFunc( x ):
+	return math.e ** x - 1
+
+#Metodo de Newton
+def newtonRaphson( x,f,e,n=0):
+	h = f(x) / derivFunc(x)
+	while abs(h) >= e:
+	    h = f(x)/derivFunc(x)
+        
+	    x = x - h
+        
+
+	print("El valor de la raiz es : ","%.4f"% x)
+		        		
+#Asignacion x0
+x0 = 1
+
+#Llamado al metodo de Newton
+newtonRaphson(x0,funcA,10e-12)
